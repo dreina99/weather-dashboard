@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1 class = "head p-2 text-center text-light">
+            Weather Dashboard
+        </h1>
+    </header>
+
+    <main>
+        <div class = "container-fluid">
+            <div class = "row">
+                <div class = "col-3">
+                    <h2>Search for a city</h2>
+                    <input type = "text" name = "task-name" placeholder = "San Diego" class ="search-area p-2" />
+                    <br />
+                    <button id = "search" class = "search-btn text-center p-1 mt-2 mb-2">Search</button>
+                </div>
+                
+                <div class = "col-8">
+                    <div class = "city-info p-3">
+                        <h2>Atlanta<span id= "current-date"></span></h2>
+                        <p>Temp: <span id = "temp"></span></p>
+                        <p>Wind: <span id = "wind"></span></p>
+                        <p>Humidity: <span id = "humidity"></span></p>
+                        <p>UV Index: <span id = "uv"></span></p>
+                    </div>
+
+                    <h3>5-day Forecast</h3>
+                    <div class = "forecast row text-light">
+                        <card class = "card day1 col-2">
+                            <p>date</p>
+                            <p>icon</p>
+                            <p>Temp: <span id = "day1-temp"></span></p>
+                            <p>Wind: <span id = "day1-wind"></span></p>
+                            <p>Humidity: <span id = "day1-humidity"></span></p>
+                        </card>
+
+                        <card class = "card day2 col-2">
+                            <p>date</p>
+                            <p>icon</p>
+                            <p>Temp: <span id = "day2-temp"></span></p>
+                            <p>Wind: <span id = "day2-wind"></span></p>
+                            <p>Humidity: <span id = "day2-humidity"></span></p>
+                        </card>
+
+                        <card class = "card day3 col-2">
+                            <p>date</p>
+                            <p>icon</p>
+                            <p>Temp: <span id = "day3-temp"></span></p>
+                            <p>Wind: <span id = "day3-wind"></span></p>
+                            <p>Humidity: <span id = "day3-humidity"></span></p>
+                        </card>
+
+                        <card class = "card day4 col-2">
+                            <p>date</p>
+                            <p>icon</p>
+                            <p>Temp: <span id = "day4-temp"></span></p>
+                            <p>Wind: <span id = "day4-wind"></span></p>
+                            <p>Humidity: <span id = "day4-humidity"></span></p>
+                        </card>
+
+                        <card class = "card day5 col-2">
+                            <p>date</p>
+                            <p>icon</p>
+                            <p>Temp: <span id = "day5-temp"></span></p>
+                            <p>Wind: <span id = "day5-wind"></span></p>
+                            <p>Humidity: <span id = "day5-humidity"></span></p>
+                        </card>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </main>
+
+    <script src = "./assets/js/script.js"
+</body>
+</html>

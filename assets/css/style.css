@@ -1,0 +1,27 @@
+.head {
+    background-color: #4230e0;
+    background-image: linear-gradient(45deg, #4230e0 0%, #0f0b35 100%);
+}
+
+.search-area {
+    width: 85%;
+    border-radius: 4px;
+}
+
+.search-btn {
+    background-color: #5695e9;
+    color: white;
+    width: 85%;
+    border-radius: 4px;
+}
+
+.city-info {
+    border-style: solid;
+    border-width: 2px;
+}
+
+.card {
+    background-color: rgb(19, 56, 136);
+    height: 200px;
+    margin: 15px;
+}
