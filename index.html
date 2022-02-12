@@ -19,25 +19,31 @@
         <div class = "container-fluid">
             <div class = "row">
                 <div class = "col-3">
-                    <h2>Search for a city</h2>
-                    <input type = "text" name = "task-name" placeholder = "San Diego" class ="search-area p-2" />
-                    <br />
-                    <button id = "search" class = "search-btn text-center p-1 mt-2 mb-2">Search</button>
+                    <div class = "search-div">
+                        <h2>Search for a city</h2>
+                        <input type = "text" name = "task-name" placeholder = "San Diego" class ="search-area p-2" id ="search-area" />
+                        <br />
+                        <button id = "search" class = "search-btn text-center p-1 mt-2 mb-2">Search</button>
+                    </div>
+
+                    <div id = "past-searches">
+
+                    </div>
                 </div>
                 
                 <div class = "col-8">
-                    <div class = "city-info p-3">
-                        <h2>Atlanta<span id= "current-date"></span></h2>
-                        <p>Temp: <span id = "temp"></span></p>
-                        <p>Wind: <span id = "wind"></span></p>
-                        <p>Humidity: <span id = "humidity"></span></p>
-                        <p>UV Index: <span id = "uv"></span></p>
+                    <div class = "city-info p-3" id = "today">
+                        <h2 id = "city-name">Atlanta</h2>
+                        <p>Temp: <span id = "temp"></span>°F</p>
+                        <p>Wind: <span id = "wind"></span> MPH</p>
+                        <p>Humidity: <span id = "humidity"></span> %</p>
+                        <p>UV Index: <span id = "uv" class = "uv pl-2 pr-2 text-white"></span></p>
                     </div>
 
                     <h3>5-day Forecast</h3>
                     <div class = "forecast row text-light">
                         <card class = "card day1 col-2">
-                            <p>date</p>
+                            <p class = "h5" id = "date-1">date</p>
                             <p>icon</p>
                             <p>Temp: <span id = "day1-temp"></span></p>
                             <p>Wind: <span id = "day1-wind"></span></p>
@@ -45,7 +51,7 @@
                         </card>
 
                         <card class = "card day2 col-2">
-                            <p>date</p>
+                            <p class = "h5" id = "date-2">date</p>
                             <p>icon</p>
                             <p>Temp: <span id = "day2-temp"></span></p>
                             <p>Wind: <span id = "day2-wind"></span></p>
@@ -53,7 +59,7 @@
                         </card>
 
                         <card class = "card day3 col-2">
-                            <p>date</p>
+                            <p class = "h5" id = "date-3">date</p>
                             <p>icon</p>
                             <p>Temp: <span id = "day3-temp"></span></p>
                             <p>Wind: <span id = "day3-wind"></span></p>
@@ -61,7 +67,7 @@
                         </card>
 
                         <card class = "card day4 col-2">
-                            <p>date</p>
+                            <p class = "h5" id = "date-4">date</p>
                             <p>icon</p>
                             <p>Temp: <span id = "day4-temp"></span></p>
                             <p>Wind: <span id = "day4-wind"></span></p>
@@ -69,7 +75,7 @@
                         </card>
 
                         <card class = "card day5 col-2">
-                            <p>date</p>
+                            <p class = "h5" id = "date-5">date</p>
                             <p>icon</p>
                             <p>Temp: <span id = "day5-temp"></span></p>
                             <p>Wind: <span id = "day5-wind"></span></p>
@@ -81,6 +87,7 @@
         </div>
     </main>
 
-    <script src = "./assets/js/script.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src = "./assets/js/script.js"></script>
 </body>
 </html>
