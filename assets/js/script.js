@@ -83,7 +83,7 @@ function setCurrentHistory() {
 }
 
 function fetchCoords(city) {
-    var apiURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=95e061fc89e3c58364be7e8ab8cf6e50";
+    var apiURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=95e061fc89e3c58364be7e8ab8cf6e50";
     fetch(apiURL).then(function(response){
         response.json().then(function(data){
             console.log(data);
