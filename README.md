@@ -4,4 +4,4 @@
 # using the OpenWeatherAPI fetches the weather data for the city. It displays the
 # current weather along with the forecast for the next 5 days. The app then stores
 # the result into the search history.
-![image](https://user-images.githubusercontent.com/32178142/153776385-e1ba2452-fd0c-4201-bcfd-2663ee4da357.PNG)
+![image](https://user-images.githubusercontent.com/32178142/153776502-ebb47f5f-e6a4-4e27-9806-f1217355c481.PNG)
