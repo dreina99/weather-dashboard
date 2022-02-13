@@ -113,11 +113,11 @@ function fetchWeatherData(coords)
             humidity.innerHTML = data.current.humidity;
             uvIndex.innerHTML = data.current.uvi;
 
-            if(data.current.uvi >= 0 && data.current.uvi <= 2)
+            if(data.current.uvi >= 0 && data.current.uvi <= 2.99)
             {
                 uvIndex.classList.add("bg-success");
             }
-            else if(data.current.uvi >= 3 && data.current.uvi <= 7)
+            else if(data.current.uvi >= 3 && data.current.uvi <= 7.99)
             {
                 uvIndex.classList.add("bg-warning")
             }
