@@ -4,15 +4,26 @@
 }
 
 .search-area {
-    width: 85%;
+    width: 100%;
     border-radius: 4px;
 }
 
 .search-btn {
     background-color: #5695e9;
     color: white;
-    width: 85%;
+    width: 100%;
     border-radius: 4px;
+}
+
+.past-btn {
+    background-color: rgb(158, 146, 146);
+    color: white;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.search-div {
+    border-bottom: 2px solid black;
 }
 
 .city-info {
@@ -32,4 +43,8 @@
 
 .uv {
     border-radius: 4px;
+}
+
+.icon {
+    width: 50px;
 }

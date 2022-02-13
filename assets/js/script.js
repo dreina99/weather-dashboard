@@ -7,8 +7,14 @@ var pastLocations = [];
 var city = "";
 var currDate = moment().format('l');
 
+setSearchHistory();
+
 searchButton.addEventListener('click', function() {
     getCityInput();
+});
+
+pastSearches.addEventListener('click', function(event){
+    console.log(event.textContent);
 })
 
 function getCityInput() {
@@ -31,10 +37,40 @@ function getCityInput() {
         city = words.join(" ");
     }
     cityName.innerHTML = city + " " + currDate;
-    //setCityItems();
+    setCityItems();
     //addSearchHistory();
     fetchCoords();
     setCardDates();
+    setCurrentHistory();
+}
+
+function setCityItems() {
+    pastLocations.unshift(city);
+    localStorage.setItem("pastLocation", JSON.stringify(pastLocations));
+    console.log(pastLocations);
+}
+
+function setSearchHistory() {
+    pastLocations = JSON.parse(localStorage.getItem("pastLocation"));
+    //console.log(pastLocations);
+    for(var i = 0; i < pastLocations.length; i++)
+    {
+        var newSearch = document.createElement("button");
+        newSearch.setAttribute("id", pastLocations[i]);
+        newSearch.innerHTML = pastLocations[i];
+        newSearch.classList.add("past-btn");
+        newSearch.classList.add("mt-2");
+        pastSearches.appendChild(newSearch);
+    }
+}
+
+function setCurrentHistory() {
+    var newSearch = document.createElement("button");
+    newSearch.setAttribute("id", city);
+    newSearch.innerHTML = city;
+    newSearch.classList.add("past-btn");
+    newSearch.classList.add("mt-2");
+    pastSearches.insertBefore(newSearch, pastSearches.firstChild);   
 }
 
 function fetchCoords() {
@@ -80,9 +116,36 @@ function fetchWeatherData(coords)
             {
                 uvIndex.classList.add("bg-danger")
             }
-            
+            setCardInfo(data);
         });
     });
+}
+
+function setCardInfo(data) {
+    var card1 = document.getElementById("day1");
+    var card2 = document.getElementById("day2");
+    var card3 = document.getElementById("day3");
+    var card4 = document.getElementById("day4");
+    var card5 = document.getElementById("day5");
+
+    var dayCards = [card1, card2, card3, card4, card5];
+
+    for(let i = 0; i < dayCards.length; i++)
+    {
+        var nextTemp = dayCards[i].getElementsByClassName('day-temp')[0];
+        var nextWind = dayCards[i].getElementsByClassName('day-wind')[0];
+        var nextHum = dayCards[i].getElementsByClassName('day-humidity')[0];
+        var img = dayCards[i].getElementsByClassName('icon')[0];
+        nextTemp.innerHTML = data.daily[i + 1].temp.day;
+        nextWind.innerHTML = data.daily[i + 1].wind_speed;
+        nextHum.innerHTML = data.daily[i+ 1].humidity;
+
+        var icon = data.daily[i + 1].weather[0].icon;
+        var iconurl = "http://openweathermap.org/img/w/" + icon + ".png";
+        img.setAttribute("src", iconurl);   
+    }
+ 
+   
 }
 
 function setCardDates() {
@@ -103,21 +166,3 @@ function setCardDates() {
         dates[i].innerHTML = month + "/" + day + "/" + year;
     }
 }
-
-/*function setCityItems() {
-    pastLocations.push(city);
-    localStorage.setItem("pastLocation", JSON.stringify(pastLocations));
-    //console.log(pastLocations);
-}
-
-/*function addSearchHistory() {
-    pastLocations = JSON.parse(localStorage.getItem("pastLocation"));
-    //console.log(pastLocations);
-    for(var i = 0; i < pastLocations.length(); i++)
-    {
-        var newSearch = document.createElement("button");
-        newSearch.setAttribute("id", pastLocations[i]);
-        newSearch.innerHTML = pastLocations[i];
-        pastSearches.appendChild(newSearch);
-    }
-}*/
