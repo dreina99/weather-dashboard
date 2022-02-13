@@ -2,6 +2,7 @@ var cityInput = document.getElementById('search-area');
 var searchButton = document.getElementById('search');
 var cityName = document.getElementById('city-name');
 var pastSearches = document.getElementById('past-searches');
+var weatherArea = document.getElementById('weather-data');
 var words = [];
 var pastLocations = [];
 var city = "";
@@ -14,8 +15,12 @@ searchButton.addEventListener('click', function() {
 });
 
 pastSearches.addEventListener('click', function(event){
-    console.log(event.textContent);
-})
+    console.log("yo")
+    city = event.target.textContent;
+    cityName.innerHTML = city + " " + currDate;
+    fetchCoords(city);
+    setCardDates();
+});
 
 function getCityInput() {
     city = cityInput.value;
@@ -39,7 +44,7 @@ function getCityInput() {
     cityName.innerHTML = city + " " + currDate;
     setCityItems();
     //addSearchHistory();
-    fetchCoords();
+    fetchCoords(city);
     setCardDates();
     setCurrentHistory();
 }
@@ -51,8 +56,12 @@ function setCityItems() {
 }
 
 function setSearchHistory() {
-    pastLocations = JSON.parse(localStorage.getItem("pastLocation"));
-    //console.log(pastLocations);
+    if(localStorage.getItem("pastLocation"))
+    {
+        pastLocations = JSON.parse(localStorage.getItem("pastLocation"));
+        //console.log(pastLocations);
+    }
+
     for(var i = 0; i < pastLocations.length; i++)
     {
         var newSearch = document.createElement("button");
@@ -73,7 +82,7 @@ function setCurrentHistory() {
     pastSearches.insertBefore(newSearch, pastSearches.firstChild);   
 }
 
-function fetchCoords() {
+function fetchCoords(city) {
     var apiURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=95e061fc89e3c58364be7e8ab8cf6e50";
     fetch(apiURL).then(function(response){
         response.json().then(function(data){
@@ -144,8 +153,7 @@ function setCardInfo(data) {
         var iconurl = "http://openweathermap.org/img/w/" + icon + ".png";
         img.setAttribute("src", iconurl);   
     }
- 
-   
+    weatherArea.classList.remove('hide'); 
 }
 
 function setCardDates() {
